@@ -17,7 +17,7 @@ int main()
   	//construct ComplexPlane Vanessa
   	ComplexPlane plane;
 
-  	// create text and font Vanessa
+  	// create text and font Vanessa MAY HAVE TO BE CHANGED FOR LOAD TEXT FUNCTION, SETSTRING IS MISSING
 	sf::Font font;
 	font.loadFromFile("Roboto-Light.ttf");
 	sf::Text text;
@@ -63,6 +63,16 @@ int main()
 	  	{
 			window.close();
  	  	}
+
+		//update scene segment Vanessa
+		plane.updateRender();
+		plane.loadText(text);
+
+		//draw scene segment Vanessa
+		window.clear();
+		window.draw(plane);
+		window.draw(text);
+		window.display();
 	      		
 	  }
 
