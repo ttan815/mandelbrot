@@ -52,6 +52,11 @@ int main()
 	                	plane.setCenter(position);
 	            	}
 		    }
+		    if (event.type == sf::Event::MouseMoved)
+		    {
+			    Vector2i position(event.mouseButton.x, event.mouseButton.y);
+			    plane.setMouseLocation(position);
+		    }
 		}
 
 		if (Keyboard::isKeyPressed(Keyboard::Escape))
