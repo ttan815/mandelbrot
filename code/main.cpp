@@ -1,8 +1,4 @@
-// Include important C++ libraries here
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
-#include <iostream>
-#include <sstream>
+#include "ComplexPlane.h"
 
 //Make the code easier to type with "using namespace"
 using namespace sf;
@@ -37,7 +33,7 @@ int main()
   		{
   		    if (event.type == Event::Closed)
   		    {
-  					window.close();
+  			window.close();
   		    }
   		    if (event.type == sf::Event::MouseButtonPressed)
   		    {
