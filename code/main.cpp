@@ -7,10 +7,12 @@ using namespace std;
 int main()
 {
 	// Create a video mode object Vanessa
-  	VideoMode vm((vm.getDesktopMode().width / 2), (vm.getDesktopMode().height / 2));
+  	int pixelWidth = VideoMode::getDesktopMode().width / 2;
+	int pixelHeight = VideoMode::getDesktopMode().height / 2;
+	VideoMode vm(pixelWidth, pixelHeight);
 
 	// Create and open a window for the game Vanessa
-	RenderWindow window(vm, "MandelBrot", Style::Default);
+	RenderWindow window(vm, "Mandelbrot", Style::Default);
 
   	//construct ComplexPlane Vanessa
   	ComplexPlane plane;
@@ -39,12 +41,15 @@ int main()
   		    {
       			if (event.mouseButton.button == sf::Mouse::Left)
       			{
-	              
+				plane.zoomIn();
+				Vector2i position(event.mouseButton.x, event.mouseButton.y);
+	                	plane.setCenter(position);
 	                }
 	            	if (event.mouseButton.button == sf::Mouse::Right)
 		    	{
 	                	plane.zoomOut();
-	                	plane.setCenter(
+				Vector2i position(event.mouseButton.x, event.mouseButton.y);
+	                	plane.setCenter(position);
 	            	}
 		    }
 		}
