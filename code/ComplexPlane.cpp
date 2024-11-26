@@ -73,11 +73,20 @@ void ComplexPlane::loadText(Text& text){
 
 size_t ComplexPlane::countIterations(Vector2f coord)
 {
-	
+    Vector2f tester  = coord;
+    int counter = 0;
+    while(abs(tester) < 2.0 && counter < 64)
+    {
+        tester = tester * tester + coord;
+        counter++;
+    }
+    return counter;
 }
 
 void ComplexPlane::iterationsToRGB(size_t count, Uint8& r, Uint8& g, Uint8& b)
 {
+	if (count == 64) r = 0 , g = 0, b = 0;
+	
 	
 }
 
