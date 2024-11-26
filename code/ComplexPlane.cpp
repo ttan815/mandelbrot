@@ -70,6 +70,18 @@ void ComplexPlane::loadText(Text& text){
 		text.setString(ss.str());
 	}
 }
-size_t ComplexPlane::countIterations(Vector2f coord){}
-void ComplexPlane::iterationsToRGB(size_t count, Uint8& r, Uint8& g, Uint8& b){}
-Vector2f ComplexPlane::mapPixelToCoords(Vector2i mousePixel){}
+
+size_t ComplexPlane::countIterations(Vector2f coord)
+{
+	
+}
+
+void ComplexPlane::iterationsToRGB(size_t count, Uint8& r, Uint8& g, Uint8& b)
+{
+	
+}
+
+Vector2f ComplexPlane::mapPixelToCoords(Vector2i mousePixel)
+{
+	
+}
