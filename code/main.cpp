@@ -22,7 +22,6 @@ int main()
 	font.loadFromFile("Roboto-Light.ttf");
 	sf::Text text;
 	text.setFont(font);
-	text.setString("FIX ME");
 	text.setCharacterSize(24);
 	text.setFillColor(Color::White);
 	text.setPosition(0, 0);
