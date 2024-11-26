@@ -7,6 +7,7 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
+#include <cmath>
 
 const unsigned int MAX_ITER = 64;
 const float BASE_WIDTH = 4.0;
@@ -23,20 +24,27 @@ enum class State
 //Define the class headings for ComplexPlane - Tony
 class ComplexPlane
 {
+private:
+    VertexArray m_vArray;
+    State m_state;
+    Vector2f m_mouseLocation;
+    Vector2i m_pixel_size;
+    Vector2f m_plane_center;
+    Vector2f m_plane_size;
+    int m_zoomCount;
+    float m_aspectRatio;
+    size_t countIterations(Vector2f);
+    void iterationsToRGB(size_t count, Uint8&, Uint8&, Uint8&);
+    Vector2f mapPixelToCoords(Vector2i);
 public:
     ComplexPlane(int, int);
-    void draw(RenderTarget&, RenderStates) const
+    void draw(RenderTarget&, RenderStates) const;
     void updateRender();
     void zoomIn();
     void zoomOut();
     void setCenter(Vector2i);
     void setMouseLocation(Vector2i);
     void loadText(Text& text);
-    size_t countIterations(Vector2f);
-    void iterationsToRGB(size_t count, Uint8&, Uint8&, Uint8&);
-    Vector2f mapPixelToCoords(Vector2i);
-
-
 };
 
 
