@@ -1,5 +1,6 @@
 #ifndef ComplexPlane_H
 #define ComplexPlane_H
+
 #include <iostream>
 // Include important C++ libraries here - Tony
 #include <SFML/Graphics.hpp>
@@ -8,6 +9,7 @@
 #include <sstream>
 #include <vector>
 #include <cmath>
+#include <complex>
 
 const unsigned int MAX_ITER = 64;
 const float BASE_WIDTH = 4.0;
@@ -21,31 +23,32 @@ enum class State
     DISPLAYING,
 };
 
-//Define the class headings for ComplexPlane - Tony
+// Define the class headings for ComplexPlane - Tony
 class ComplexPlane
 {
 private:
-    VertexArray m_vArray;
+    sf::VertexArray m_vArray;
     State m_state;
-    Vector2f m_mouseLocation;
-    Vector2i m_pixel_size;
-    Vector2f m_plane_center;
-    Vector2f m_plane_size;
+    sf::Vector2f m_mouseLocation;
+    sf::Vector2i m_pixel_size;    
+    sf::Vector2f m_plane_center; 
+    sf::Vector2f m_plane_size;    
     int m_zoomCount;
     float m_aspectRatio;
-    size_t countIterations(Vector2f);
-    void iterationsToRGB(size_t count, Uint8&, Uint8&, Uint8&);
-    Vector2f mapPixelToCoords(Vector2i);
+
+    size_t countIterations(sf::Vector2f); 
+    void iterationsToRGB(size_t count, sf::Uint8& red, sf::Uint8& green, sf::Uint8& blue);
+    sf::Vector2f mapPixelToCoords(sf::Vector2i); 
+
 public:
     ComplexPlane(int, int);
-    void draw(RenderTarget&, RenderStates) const;
+    void draw(sf::RenderTarget&, sf::RenderStates) const; 
     void updateRender();
     void zoomIn();
     void zoomOut();
-    void setCenter(Vector2i);
-    void setMouseLocation(Vector2i);
-    void loadText(Text& text);
+    void setCenter(sf::Vector2i); 
+    void setMouseLocation(sf::Vector2i); 
+    void loadText(sf::Text& text); 
 };
-
 
 #endif
