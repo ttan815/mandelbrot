@@ -15,7 +15,7 @@ int main()
     RenderWindow window(vm, "Mandelbrot", Style::Default);
 
     // construct ComplexPlane Vanessa
-    ComplexPlane plane;
+    ComplexPlane plane(pixelWidth, pixelHeight);
 
     // create text and font Vanessa MAY HAVE TO BE CHANGED FOR LOAD TEXT FUNCTION
     sf::Font font;
